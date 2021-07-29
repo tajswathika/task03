@@ -1,0 +1,245 @@
+Problem 0
+---------------
+1. Loop over the accidents array. Change atFaultForAccident from true to false.
+2. Print the dated of my accidents
+
+Solution:
+
+for(var i=0; i<myCar.accidents.length; i++)
+{
+    myCar.accidents[i].atFaultForAccident = "false";
+    console.log("atFaultForAccident:"+" "+myCar.accidents[i].atFaultForAccident);
+    console.log("Date of accidents:"+" "+myCar.accidents[i].date);
+}
+
+
+Problem 1
+---------------
+Write a function called “printAllValues” which returns an newArray of all the input object’s values.
+
+Solution:
+
+function printAllValues()
+{
+var objnew = {name: "RajiniKanth", age: 33, hasPets : false};
+var Values = [];
+var g="";
+Object.entries(objnew).forEach(([a,b]) =>
+{
+    
+g=g+ " " + b
+
+});
+console.log(g);
+}
+
+printAllValues();
+
+
+Problem2:
+--------------
+Write a function called “printAllKeys” which returns an newArray of all the input object’s keys.
+
+Solution:
+
+function printAllValues()
+{
+var objnew = {name: "RajiniKanth", age: 33, hasPets : false};
+var Values = [];
+var g="";
+Object.entries(objnew).forEach(([a,b]) =>
+{
+    
+g=g+ " " + a
+
+});
+console.log(g);
+}
+
+printAllValues();
+
+Problem 3:
+---------------
+Write a function called “convertObjectToList” which converts an object literal into an array of arrays.
+Input (Object):
+var object = {name: “ISRO”, age: 35, role: “Scientist”};
+
+Solution:
+
+var Obj = {name:"ISRO", age: 35, role: "Scientist"};
+function convertObjectToList(objvalue)
+{
+var arr =[];
+var arrValue=[]
+var Finarr=[];
+arr = Object.keys(objvalue);
+arrValue = Object.values(objvalue);
+Finarr = [[...arr],arrValue];
+console.log(Finarr);
+
+}
+(convertObjectToList(Obj));
+
+Problem 4:
+---------------
+Write a function ‘transformFirstAndLast’ that takes in an array, and returns an object with:
+1) the first element of the array as the object’s key, and
+2) the last element of the array as that key’s value.
+
+Solution:
+
+var array = ['GUVI','I', 'am', 'Geek'];
+
+function transformFirstAndLast(arr)
+{
+    var objk ={};
+    var objv = {};
+    var Finobj = {};
+    objk = arr[0];
+    objv = arr[arr.length-1];
+    console.log(objv);
+    Finobj[arr[0]] = arr[arr.length-1];
+    console.log(Finobj);
+}
+transformFirstAndLast(array);
+
+Problem 5:
+---------------
+Write a function “fromListToObject” which takes in an array of arrays, and returns an object with each pair of elements in the array as a key-value pair.
+
+Solution:
+
+var array = [['make', 'Ford'], ['model', 'Mustang'], ['year', 1964]];
+
+function fromListToObject(arr)
+{
+    var Finobj = {};
+    for( var i=0; i<arr.length; i++)
+    {
+    Finobj[arr[i][0]] = arr[i][1];
+    }
+    return Finobj;
+}
+var Finalobject;
+Finalobject = fromListToObject(array);
+console.log(Finalobject);
+
+Problem 6:
+---------------
+Write a function called “transformGeekData” that transforms some set of data from one format to another.
+
+Solution:
+
+var array1 = [[['firstName', 'Vasanth'], ['lastName', 'Raja'], ['age', 24], ['role', 'JSWizard']], [['firstName', 'Sri'], ['lastName', 'Devi'], ['age', 28], ['role', 'Coder']]];
+var Lastobj;
+var Finfarr = {};
+var FinSarr = {};
+function transformGeekData(arr)
+{
+    
+    for( var i=0; i<arr[0].length; i++)
+    {
+    Finfarr[arr[0][i][0]] = arr[0][i][1];
+    FinSarr[arr[1][i][0]] = arr[1][i][1];
+    }
+}
+
+transformGeekData(array1);
+var Comobj = [];
+Comobj = [{...Finfarr},FinSarr];
+console.log(Comobj);
+
+Problem 7:
+--------------
+Write an “assertObjectsEqual” function from scratch.
+Assume that the objects in question contain only scalar values (i.e., simple values like strings or numbers).
+It is OK to use JSON.stringify().
+
+Solution:
+
+var a = {foo : 5, bar : 6};
+var b = {foo : 6, bar : 7};
+var stringA = JSON.stringify(a);
+var stringB = JSON.stringify(b);
+var parsedA = JSON.parse(stringA);
+var parsedB = JSON.parse(stringB);
+console.log(`${stringA} is a type of ${typeof stringA}`);
+console.log(`${parsedA} is a type of ${typeof parsedA}`);
+console.log(stringA=== stringB)
+
+Problem 8:
+---------------
+I have a mock data of security Questions and Answers. You function should take the object and a pair of strings and should return if the quest is present and if its valid answer
+
+Solution:
+
+var securityQuestions = [
+ {
+ question: 'What was your first pets name?',
+ expectedAnswer: 'FlufferNutter'
+ },
+ {
+ question: 'What was the model year of your first car?',
+ expectedAnswer: '1985'
+ },
+ {
+ question: 'What city were you born in?',
+ expectedAnswer: 'NYC'
+ }
+]
+function chksecurityQuestions(arr,qst,ans) 
+{
+    for(var i=0;i<arr.length;i++)
+    {
+        //console.log(arr[i].question);
+        if(arr[i].question==qst)
+        {
+            if(arr[i].expectedAnswer==ans)
+            return true
+        }
+    }
+    return false
+}
+//Test case1:
+var ques = 'What was your first pets name?';
+var ans  =  'FlufferNutter';
+var status = chksecurityQuestions(securityQuestions, ques, ans);
+console.log(status); // true
+//Test case2:
+var ques = 'What was your first pets name?';
+var ans  =  'DufferNutter';
+var status = chksecurityQuestions(securityQuestions, ques, ans);
+console.log(status);
+
+
+Problem 9:
+---------------
+Write a function to return the list of characters below 20 age
+
+Solution:
+
+var students = [
+ {
+ name: 'Siddharth Abhimanyu', age: 21}, { name: 'Malar', age: 25},
+ {name: 'Maari',age: 18},{name: 'Bhallala Deva',age: 17},
+ {name: 'Baahubali',age: 16},{name: 'AAK chandran',age: 23},   {name:'Gabbar Singh',age: 33},{name: 'Mogambo',age: 53},
+ {name: 'Munnabhai',age: 40},{name: 'Sher Khan',age: 20},
+ {name: 'Chulbul Pandey',age: 19},{name: 'Anthony',age: 28},
+ {name: 'Devdas',age: 56} 
+ ];
+ var Min=[];
+function returnMinors(arr)
+{
+    var j=0;
+    for(var i=0; i<arr.length; i++)
+    {
+        
+    if(arr[i].age<20)
+    {
+        Min[j] = arr[i].name;
+        j=j+1;
+    }
+    }
+}
+returnMinors(students);
+console.log(Min);
